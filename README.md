@@ -1,12 +1,12 @@
 # Meta-GraphQL Server
 
-Make calls to your GraphQL service in resolvers.
+Make calls to your GraphQL service in your resolvers.
 
 ## Example
 
-See `/example/` directory.
+See `/api/` directory for an example service that can be deployed as a serverless function using [`now`](https://github.com/zeit/now).
 
-### `schema.js`
+### `_schema.js`
 ```js
 const { graphql, buildSchema } = require('graphql')
 
@@ -26,15 +26,4 @@ module.exports = {
   schema,
   rootValue
 }
-```
-
-### `server.js`
-```js
-const metaGraphQL = require('../')
-const express = require('express')
-const { schema, rootValue } = require('./schema')
-
-const app = express()
-app.use('/', metaGraphQL({ schema, rootValue, graphiql: true }))
-app.listen(4000)
 ```
